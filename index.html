@@ -28,11 +28,34 @@
 .deck-modal[hidden]{display:none}
 .deck-modal-in{position:relative;width:min(1200px,100%);background:var(--bg);border-radius:16px;padding:44px 16px 16px}
 .deck-x{position:absolute;top:8px;right:10px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);font-size:1.4rem;cursor:pointer}
+/* coloured-pencil sketch style */
+:root{--pp:#FAF8F2;--pencil-ink:#1E211F;--note-ink:#23262A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pp:#ECE8DE;--pencil-ink:#1E211F;--note-ink:#23262A}}
+:root[data-theme="dark"]{--pp:#ECE8DE;--pencil-ink:#1E211F;--note-ink:#23262A}
+svg.sketch,svg.hero-sk{background:var(--pp)!important}
+svg.sketch .sk-wash,svg.hero-sk .sk-wash{filter:url(#skpencil)!important}
+svg.sketch .sk-wash>*,svg.hero-sk .sk-wash>*{opacity:.95}
+svg.sketch .sk-ink *,svg.hero-sk .sk-ink *{stroke:var(--pencil-ink)!important;stroke-width:1.15}
+svg.sketch .sk-thin *,svg.hero-sk .sk-thin *{stroke:var(--pencil-ink)!important;stroke-width:.6;opacity:.75}
+svg.sketch .sk-ink,svg.hero-sk .sk-ink,svg.sketch .sk-thin,svg.hero-sk .sk-thin{filter:url(#skwob2)!important}
+.sk-note{font-family:"Architects Daughter","Segoe Print",cursive!important;font-weight:400!important;text-transform:uppercase;letter-spacing:.06em;fill:var(--note-ink)!important;font-size:14px!important;paint-order:stroke;stroke:var(--pp);stroke-width:4px;stroke-linejoin:round}
+.sk-lead{stroke:var(--note-ink)!important;stroke-width:1.2!important;opacity:1!important;marker-end:url(#skarrow2)}
+.sk-dot{display:none}
+/* light, airy sky and paper tones like a pencil render */
+.sk-wash .w-sky{fill:#B9D5EC!important;opacity:.75!important}.sk-wash .w-dusk{fill:#C2DAEE!important;opacity:.75!important}
+.sk-wash .w-earth{fill:#D8D2C4!important}
+.sk-wash .w-white{fill:#FFFFFF!important}
+.sk-wash .w-concrete{fill:#B9BCB7!important}.sk-wash .w-shade{fill:#7F8582!important}
+.sk-wash .w-timber{fill:#B2683A!important}.sk-wash .w-brick{fill:#B5603B!important}
+.sk-wash .w-stone{fill:#6E6A63!important}.sk-wash .w-leaf{fill:#4E8F3A!important}
+.sk-wash .w-glass{fill:#7FA2B3!important}.sk-wash .w-metal{fill:#2E3230!important}
+.sk-wash .w-cream{fill:#EDE6D6!important}.sk-wash .w-glow{fill:#F2C86A!important}
+
 </style>
 </head>
 <body>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Caveat:wght@600&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Caveat:wght@600&family=Architects+Daughter&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: full-bleed dusk photo hero → floating search bar → sticky tab rail → one 1120px column of sections */
 :root{
@@ -710,6 +733,18 @@ svg.plan{cursor:zoom-in}
 <filter id="skwash" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter>
 <marker id="skarrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" class="sk-ah" stroke-width="1.6" stroke-linecap="round"/></marker>
 </defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<filter id="skpencil" x="-2%" y="-2%" width="104%" height="104%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.75 0.06" numOctaves="2" seed="7" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.5 1.45" result="m"/>
+ <feComposite in="SourceGraphic" in2="m" operator="in" result="c"/>
+ <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="2" result="w"/>
+ <feDisplacementMap in="c" in2="w" scale="5"/>
+</filter>
+<filter id="skwob2" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.2"/></filter>
+<marker id="skarrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1.5L8.5 5L1 8.5" fill="none" stroke="#23262A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs></svg>
+
 <div class="progress" aria-hidden="true"><i></i></div>
 <div class="explorer" aria-live="polite"><span class="ex-dots"></span><span class="ex-t">Explored 0 of 7 chapters</span></div>
 <header class="hero drawn" id="top">
@@ -1114,7 +1149,7 @@ svg.plan{cursor:zoom-in}
   <div class="deck-modal-in deckview"><button type="button" class="deck-x" aria-label="Close the deck">×</button><div class="dv">
     <div class="dv-stage"><img class="dv-img" src="deck/slides/s01.jpg" alt="Slide 1: Brainstorm: Our Next Villa Community">
       <button type="button" class="dv-nav dv-prev" aria-label="Previous slide">‹</button><button type="button" class="dv-nav dv-next" aria-label="Next slide">›</button></div>
-    <div class="dv-bar"><span class="dv-count">Slide 1 of 32 · Brainstorm: Our Next Villa Community</span><a class="pill pri" href="deck/Ankura-Villa-Community-Brainstorm.pdf" download>Download the deck (PDF, 8 MB) ↓</a></div>
+    <div class="dv-bar"><span class="dv-count">Slide 1 of 32 · Brainstorm: Our Next Villa Community</span><a class="pill pri" href="deck/Ankura-Villa-Community-Brainstorm.pdf" download>Download the deck (PDF, 9 MB) ↓</a></div>
     <div class="dv-thumbs"><button type="button" data-i="0" aria-label="Slide 1: Brainstorm: Our Next Villa Community" aria-current="true"><img src="deck/slides/s01.jpg" alt="" loading="lazy"><span>1</span></button><button type="button" data-i="1" aria-label="Slide 2: Four Questions for This Session"><img src="deck/slides/s02.jpg" alt="" loading="lazy"><span>2</span></button><button type="button" data-i="2" aria-label="Slide 3: Four Villa Sizes on the Table"><img src="deck/slides/s03.jpg" alt="" loading="lazy"><span>3</span></button><button type="button" data-i="3" aria-label="Slide 4: Built Proof for Every Size"><img src="deck/slides/s04.jpg" alt="" loading="lazy"><span>4</span></button><button type="button" data-i="4" aria-label="Slide 5: How Hyderabad Sizes Its Villas"><img src="deck/slides/s05.jpg" alt="" loading="lazy"><span>5</span></button><button type="button" data-i="5" aria-label="Slide 6: Hyderabad Benchmarks"><img src="deck/slides/s06.jpg" alt="" loading="lazy"><span>6</span></button><button type="button" data-i="6" aria-label="Slide 7: Where Each Size Sells"><img src="deck/slides/s07.jpg" alt="" loading="lazy"><span>7</span></button><button type="button" data-i="7" aria-label="Slide 8: Our Sizes Against the Market"><img src="deck/slides/s08.jpg" alt="" loading="lazy"><span>8</span></button><button type="button" data-i="8" aria-label="Slide 9: What Each Villa Could Sell For"><img src="deck/slides/s09.jpg" alt="" loading="lazy"><span>9</span></button><button type="button" data-i="9" aria-label="Slide 10: The Look We Keep Choosing"><img src="deck/slides/s10.jpg" alt="" loading="lazy"><span>10</span></button><button type="button" data-i="10" aria-label="Slide 11: What Our References Imply"><img src="deck/slides/s11.jpg" alt="" loading="lazy"><span>11</span></button><button type="button" data-i="11" aria-label="Slide 12: Built Elevations: 200–350 sq yd"><img src="deck/slides/s12.jpg" alt="" loading="lazy"><span>12</span></button><button type="button" data-i="12" aria-label="Slide 13: Built Elevations: 400–550 sq yd"><img src="deck/slides/s13.jpg" alt="" loading="lazy"><span>13</span></button><button type="button" data-i="13" aria-label="Slide 14: Built Elevations: 800–1,000 sq yd"><img src="deck/slides/s14.jpg" alt="" loading="lazy"><span>14</span></button><button type="button" data-i="14" aria-label="Slide 15: Closest Built Match: Aikya"><img src="deck/slides/s15.jpg" alt="" loading="lazy"><span>15</span></button><button type="button" data-i="15" aria-label="Slide 16: One Vastu Template, Four Sizes"><img src="deck/slides/s16.jpg" alt="" loading="lazy"><span>16</span></button><button type="button" data-i="16" aria-label="Slide 17: The Jaali House"><img src="deck/slides/s17.jpg" alt="" loading="lazy"><span>17</span></button><button type="button" data-i="17" aria-label="Slide 18: The Floating Box House"><img src="deck/slides/s18.jpg" alt="" loading="lazy"><span>18</span></button><button type="button" data-i="18" aria-label="Slide 19: The Brick Frame House"><img src="deck/slides/s19.jpg" alt="" loading="lazy"><span>19</span></button><button type="button" data-i="19" aria-label="Slide 20: The Pavilion Estate"><img src="deck/slides/s20.jpg" alt="" loading="lazy"><span>20</span></button><button type="button" data-i="20" aria-label="Slide 21: Three Densities on Ten Acres"><img src="deck/slides/s21.jpg" alt="" loading="lazy"><span>21</span></button><button type="button" data-i="21" aria-label="Slide 22: Deccan, Not Dubai"><img src="deck/slides/s22.jpg" alt="" loading="lazy"><span>22</span></button><button type="button" data-i="22" aria-label="Slide 23: A Five-Senses Trail: 775 m, 20 Stops"><img src="deck/slides/s23.jpg" alt="" loading="lazy"><span>23</span></button><button type="button" data-i="23" aria-label="Slide 24: Every Hyderabad community already offers the pool, gym and clubhouse. A short list of rare amenities is where we can stand apart."><img src="deck/slides/s24.jpg" alt="" loading="lazy"><span>24</span></button><button type="button" data-i="24" aria-label="Slide 25: 54 Amenities for Life Beyond 2030"><img src="deck/slides/s25.jpg" alt="" loading="lazy"><span>25</span></button><button type="button" data-i="25" aria-label="Slide 26: Villa Features by Plot Size"><img src="deck/slides/s26.jpg" alt="" loading="lazy"><span>26</span></button><button type="button" data-i="26" aria-label="Slide 27: Amenities: Baseline and Differentiators"><img src="deck/slides/s27.jpg" alt="" loading="lazy"><span>27</span></button><button type="button" data-i="27" aria-label="Slide 28: Clubhouse Area per Villa"><img src="deck/slides/s28.jpg" alt="" loading="lazy"><span>28</span></button><button type="button" data-i="28" aria-label="Slide 29: Build Cost Against Sale Value"><img src="deck/slides/s29.jpg" alt="" loading="lazy"><span>29</span></button><button type="button" data-i="29" aria-label="Slide 30: Ten Things Only We Will Do"><img src="deck/slides/s30.jpg" alt="" loading="lazy"><span>30</span></button><button type="button" data-i="30" aria-label="Slide 31: Decisions for This Room"><img src="deck/slides/s31.jpg" alt="" loading="lazy"><span>31</span></button><button type="button" data-i="31" aria-label="Slide 32: From Brainstorm to Brief"><img src="deck/slides/s32.jpg" alt="" loading="lazy"><span>32</span></button></div>
   </div></div>
 </div>
