@@ -27,6 +27,6 @@ Open `index.html` directly, or run `python3 -m http.server` in this folder and v
 
 ## Notes
 
-- The "Open the founders' deck" link points to a private claude.ai page; share it from there or remove the link.
+- The founders' deck is included as an offline PDF in `deck/`.
 - Photos in `gallery/`, `match/` and `plans/` belong to the credited architects and photographers (see the evidence library). Keep the repository private or get permission before making it public.
 - Prices and costs are indicative, from public asking prices and 2026 construction-rate guides.
