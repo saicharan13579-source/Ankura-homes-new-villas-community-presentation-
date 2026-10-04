@@ -741,6 +741,45 @@ svg.plan{cursor:zoom-in}
 .hero-sk .sk-wash,.hero-sk .sk-thin,.hero-sk .sk-notes{transition:opacity 1.1s}
 .hero-sk.washed .sk-thin{opacity:1;transition-delay:0s}.hero-sk.washed .sk-wash{opacity:1;transition-delay:.3s}.hero-sk.washed .sk-notes{opacity:1;transition-delay:1.1s}
 .hero-sk .sk-notes text{transition:opacity .6s}
+/* ===== iOS liquid glass ===== */
+:root{--g-bg:rgba(255,255,255,.42);--g-bg2:rgba(255,255,255,.62);--g-brd:rgba(255,255,255,.75);--g-edge:rgba(255,255,255,.95);--g-shadow:0 10px 40px -12px rgba(30,45,35,.28),0 2px 8px -2px rgba(30,45,35,.12);--g-blur:saturate(180%) blur(22px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--g-bg:rgba(28,36,31,.48);--g-bg2:rgba(34,44,38,.66);--g-brd:rgba(255,255,255,.14);--g-edge:rgba(255,255,255,.28);--g-shadow:0 12px 44px -12px rgba(0,0,0,.6),0 2px 8px -2px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--g-bg:rgba(28,36,31,.48);--g-bg2:rgba(34,44,38,.66);--g-brd:rgba(255,255,255,.14);--g-edge:rgba(255,255,255,.28);--g-shadow:0 12px 44px -12px rgba(0,0,0,.6),0 2px 8px -2px rgba(0,0,0,.4)}
+body{position:relative}
+body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+ background:radial-gradient(38% 32% at 18% 22%,color-mix(in srgb,var(--accent) 34%,transparent),transparent 70%),
+ radial-gradient(34% 30% at 82% 18%,color-mix(in srgb,var(--teak) 30%,transparent),transparent 70%),
+ radial-gradient(40% 36% at 70% 78%,color-mix(in srgb,#7FA9D8 30%,transparent),transparent 70%),
+ radial-gradient(36% 30% at 22% 82%,color-mix(in srgb,#B9D64E 26%,transparent),transparent 70%),var(--bg)}
+@media (prefers-reduced-motion:no-preference){body::before{animation:gdrift 40s ease-in-out infinite alternate}@keyframes gdrift{to{transform:translate(4%,-3%) rotate(6deg) scale(1.05)}}}
+body{background:transparent!important}
+html{background:var(--bg)}
+.glass,.villa,.idea,.sense,.site-card,.play,.deck-card,.tbl,.amcol,.ring,.costs>div,.vastu,.trail-wrap,.u,.base,.insight,.rules>div,.card,.seg,.amg,.gcard,.stat,.toolbar,.facts,.estsum div,.bd-fig,.qz-res,.deal-card,.dv-stage,.deck-modal-in,.hero-board{
+ background:linear-gradient(160deg,var(--g-bg2),var(--g-bg))!important;
+ border:1px solid var(--g-brd)!important;box-shadow:var(--g-shadow),inset 0 1px 0 var(--g-edge),inset 0 -1px 0 rgba(255,255,255,.08)!important;border-radius:22px!important}
+.facts{padding:6px 18px!important}
+.tbl{overflow:auto}
+.tbl thead th{background:rgba(255,255,255,.22)!important}
+.ring.r2,.bd-card{background:rgba(14,21,17,.8)!important;border:1px solid rgba(255,255,255,.16)!important;box-shadow:var(--g-shadow),inset 0 1px 0 rgba(255,255,255,.22)!important;border-radius:22px!important}
+.villa,.play,.vastu,.amcol,.trail-wrap{position:relative;overflow:hidden}
+.villa::after,.play::after,.vastu::after,.amcol::after,.trail-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 28%,rgba(255,255,255,0) 72%,rgba(255,255,255,.12) 100%)}
+/* nav, tabs, chips, buttons */
+.chap,.tabs{background:var(--g-bg2)!important;-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border-bottom:1px solid var(--g-brd)!important;box-shadow:0 6px 24px -14px rgba(0,0,0,.35)}
+.chap a,.tab,.chips button,.qz-opts button,.pill,.am-tabs button,.face-sw,.hero-ghost,.replay,.dv-thumbs button{background:var(--g-bg2)!important;border:1px solid var(--g-brd)!important;box-shadow:inset 0 1px 0 var(--g-edge),0 2px 10px -4px rgba(0,0,0,.18)}
+.chap a.on,.tab[aria-pressed="true"],.chips button[aria-pressed="true"],.am-tabs button[aria-selected="true"],.face-sw button[aria-pressed="true"]{background:color-mix(in srgb,var(--fg) 82%,transparent)!important;color:var(--bg)!important}
+.face-sw button{background:transparent!important;border:0!important;box-shadow:none!important}
+.pill.pri,.hero-cta,.deck,.deal-btn{background:color-mix(in srgb,var(--accent) 82%,transparent)!important;border:1px solid rgba(255,255,255,.45)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 24px -10px color-mix(in srgb,var(--accent) 70%,transparent)!important;color:#fff!important}
+.hero-cta{background:color-mix(in srgb,var(--fg) 85%,transparent)!important;color:var(--bg)!important}
+.explorer{background:var(--g-bg2)!important;-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border:1px solid var(--g-brd)!important;box-shadow:var(--g-shadow),inset 0 1px 0 var(--g-edge)!important}
+.lb,.deck-modal,.planbox{-webkit-backdrop-filter:blur(26px) saturate(150%)!important;backdrop-filter:blur(26px) saturate(150%)!important}
+.planbox{background:color-mix(in srgb,var(--bg) 70%,transparent)!important}
+/* hero sits on the glass field */
+header#top.hero.drawn{background:transparent!important}
+.hero-board{padding:14px!important}
+.hero-sk,svg.sketch{border-radius:16px!important}
+.ch>.band img{border-radius:0}
+.sense{border-top:4px solid var(--c)!important}
+.seg{border-top:3px solid var(--accent)!important}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
