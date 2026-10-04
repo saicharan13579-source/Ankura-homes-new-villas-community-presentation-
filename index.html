@@ -7,7 +7,20 @@
 <meta name="description" content="Ankura Homes founders' brainstorm: villas for 2030 and beyond in Hyderabad. Vastu plans, elevations, community layouts, amenities, costing and research.">
 <meta property="og:title" content="Villas for 2030 and beyond · Ankura Homes">
 <meta property="og:description" content="A seven-chapter story of the villa, the community, landscape, amenities and budget, with the full research library.">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}
+.deckview .dv{display:grid;gap:12px}
+.dv-stage{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--ink);aspect-ratio:16/9}
+.dv-img{width:100%;height:100%;object-fit:contain;display:block}
+.dv-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:1.8rem;cursor:pointer}
+.dv-prev{left:10px}.dv-next{right:10px}.dv-nav:hover{background:rgba(0,0,0,.7)}
+.dv-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.dv-count{font:600 .85rem var(--body);color:var(--muted)}
+.dv-thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.dv-thumbs button{flex:0 0 auto;position:relative;width:120px;border:2px solid transparent;border-radius:8px;padding:0;background:none;cursor:pointer;overflow:hidden;opacity:.7}
+.dv-thumbs button[aria-current="true"]{border-color:var(--teak);opacity:1}
+.dv-thumbs img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.dv-thumbs span{position:absolute;left:4px;top:4px;font:700 .65rem var(--mono);background:var(--surface);color:var(--fg);padding:0 4px;border-radius:3px}
+</style>
 </head>
 <body>
 
@@ -710,7 +723,7 @@ svg.plan{cursor:zoom-in}
 </header>
 
 <nav class="chap" id="chap" aria-label="Chapters">
-  <a href="#prologue">Prologue</a><a href="#villa"><b>1</b> The villa</a><a href="#community"><b>2</b> The community</a><a href="#landscape"><b>3</b> Landscape</a><a href="#amenities"><b>4</b> Amenities</a><a href="#budget"><b>5</b> Budget</a><a href="#signature"><b>6</b> Ankura signature</a><a href="#outcomes"><b>7</b> Outcomes</a><a href="#library" class="lib">Evidence library</a>
+  <a href="#prologue">Prologue</a><a href="#villa"><b>1</b> The villa</a><a href="#community"><b>2</b> The community</a><a href="#landscape"><b>3</b> Landscape</a><a href="#amenities"><b>4</b> Amenities</a><a href="#budget"><b>5</b> Budget</a><a href="#signature"><b>6</b> Ankura signature</a><a href="#outcomes"><b>7</b> Outcomes</a><a href="#deck">Deck</a><a href="#library" class="lib">Evidence library</a>
 </nav>
 
 <main class="story">
@@ -1080,11 +1093,20 @@ svg.plan{cursor:zoom-in}
     <li><b>Design language.</b> Adopt brick, jaali and stone with open-sky courts as the Ankura signature.</li>
     <li><b>Amenities.</b> Approve the five-senses trail, choose three or four signature amenities to fund, and lock in the future basics.</li>
   </ol>
-  <p class="insight"><span>Next</span>Match the villa mix to land in the right belt, shortlist architects from our precedents, test-fit these plans with them, and have a quantity surveyor price the chosen ideas. <a href="deck/Ankura-Villa-Community-Brainstorm.pdf" target="_blank" rel="noopener">Open the founders' deck (PDF) ↗</a></p>
+  <p class="insight"><span>Next</span>Match the villa mix to land in the right belt, shortlist architects from our precedents, test-fit these plans with them, and have a quantity surveyor price the chosen ideas. <a href="#deck">View the founders' deck ↓</a></p>
 </section>
 
 </main>
 
+<section class="ch deckview" id="deck">
+  <div class="ch-head"><span class="ch-no">08</span><p class="ch-kicker">The founders' deck</p><h2>Brainstorm: our next villa community</h2></div>
+  <div class="dv">
+    <div class="dv-stage"><img class="dv-img" src="deck/slides/s01.jpg" alt="Slide 1: Brainstorm: Our Next Villa Community">
+      <button type="button" class="dv-nav dv-prev" aria-label="Previous slide">‹</button><button type="button" class="dv-nav dv-next" aria-label="Next slide">›</button></div>
+    <div class="dv-bar"><span class="dv-count">Slide 1 of 20 · Brainstorm: Our Next Villa Community</span><a class="pill pri" href="deck/Ankura-Villa-Community-Brainstorm.pdf" download>Download the deck (PDF, 3 MB) ↓</a></div>
+    <div class="dv-thumbs"><button type="button" data-i="0" aria-label="Slide 1: Brainstorm: Our Next Villa Community" aria-current="true"><img src="deck/slides/s01.jpg" alt="" loading="lazy"><span>1</span></button><button type="button" data-i="1" aria-label="Slide 2: Four Questions for This Session"><img src="deck/slides/s02.jpg" alt="" loading="lazy"><span>2</span></button><button type="button" data-i="2" aria-label="Slide 3: Four Villa Sizes on the Table"><img src="deck/slides/s03.jpg" alt="" loading="lazy"><span>3</span></button><button type="button" data-i="3" aria-label="Slide 4: Built Proof for Every Size"><img src="deck/slides/s04.jpg" alt="" loading="lazy"><span>4</span></button><button type="button" data-i="4" aria-label="Slide 5: How Hyderabad Sizes Its Villas"><img src="deck/slides/s05.jpg" alt="" loading="lazy"><span>5</span></button><button type="button" data-i="5" aria-label="Slide 6: Hyderabad Benchmarks"><img src="deck/slides/s06.jpg" alt="" loading="lazy"><span>6</span></button><button type="button" data-i="6" aria-label="Slide 7: Where Each Size Sells"><img src="deck/slides/s07.jpg" alt="" loading="lazy"><span>7</span></button><button type="button" data-i="7" aria-label="Slide 8: Our Sizes Against the Market"><img src="deck/slides/s08.jpg" alt="" loading="lazy"><span>8</span></button><button type="button" data-i="8" aria-label="Slide 9: The Look We Keep Choosing"><img src="deck/slides/s09.jpg" alt="" loading="lazy"><span>9</span></button><button type="button" data-i="9" aria-label="Slide 10: What Our References Imply"><img src="deck/slides/s10.jpg" alt="" loading="lazy"><span>10</span></button><button type="button" data-i="10" aria-label="Slide 11: Built Elevations: 200–350 sq yd"><img src="deck/slides/s11.jpg" alt="" loading="lazy"><span>11</span></button><button type="button" data-i="11" aria-label="Slide 12: Built Elevations: 400–550 sq yd"><img src="deck/slides/s12.jpg" alt="" loading="lazy"><span>12</span></button><button type="button" data-i="12" aria-label="Slide 13: Built Elevations: 800–1,000 sq yd"><img src="deck/slides/s13.jpg" alt="" loading="lazy"><span>13</span></button><button type="button" data-i="13" aria-label="Slide 14: Closest Built Match: Aikya"><img src="deck/slides/s14.jpg" alt="" loading="lazy"><span>14</span></button><button type="button" data-i="14" aria-label="Slide 15: Every community offers the pool, gym and clubhouse"><img src="deck/slides/s15.jpg" alt="" loading="lazy"><span>15</span></button><button type="button" data-i="15" aria-label="Slide 16: Villa Features by Plot Size"><img src="deck/slides/s16.jpg" alt="" loading="lazy"><span>16</span></button><button type="button" data-i="16" aria-label="Slide 17: Amenities: Baseline and Differentiators"><img src="deck/slides/s17.jpg" alt="" loading="lazy"><span>17</span></button><button type="button" data-i="17" aria-label="Slide 18: Clubhouse Area per Villa"><img src="deck/slides/s18.jpg" alt="" loading="lazy"><span>18</span></button><button type="button" data-i="18" aria-label="Slide 19: Decisions for This Room"><img src="deck/slides/s19.jpg" alt="" loading="lazy"><span>19</span></button><button type="button" data-i="19" aria-label="Slide 20: From Brainstorm to Brief"><img src="deck/slides/s20.jpg" alt="" loading="lazy"><span>20</span></button></div>
+  </div>
+</section>
 <div class="wrap" id="library">
   <div class="lib-head">
     <p class="ch-kicker">Evidence library</p>
@@ -1094,7 +1116,7 @@ svg.plan{cursor:zoom-in}
   </div>
   <div class="toolbar">
     <label class="search" for="q"><span>Search</span><input id="q" type="search" placeholder="Try “Hyderabad”, “brick”, “Kokapet”, “Cat 3”…" autocomplete="off"></label>
-    <a class="deck" href="deck/Ankura-Villa-Community-Brainstorm.pdf" target="_blank" rel="noopener">Open the founders' deck (PDF) ↗</a>
+    <a class="deck" href="#deck">View the founders' deck ↓</a>
   </div>
   <p class="key" id="qcount" aria-live="polite"></p>
 
@@ -1723,6 +1745,13 @@ if(ex&&'IntersectionObserver' in window){
  sv.parentElement.querySelector('.replay').addEventListener('click',run);
  run();
 })();
+
+// founders' deck viewer
+(()=>{const dv=document.querySelector('.deckview');if(!dv)return;const btns=[...dv.querySelectorAll('.dv-thumbs button')];const img=dv.querySelector('.dv-img'),cnt=dv.querySelector('.dv-count');let i=0;
+ const go=k=>{i=(k+btns.length)%btns.length;const b=btns[i];img.src=b.querySelector('img').src;const t=b.getAttribute('aria-label');img.alt=t;cnt.textContent=`Slide ${i+1} of ${btns.length} · ${t.replace(/^Slide \d+: /,'')}`;btns.forEach(x=>x.toggleAttribute('aria-current',x===b));btns.forEach(x=>{if(x===b)x.setAttribute('aria-current','true')});b.scrollIntoView({block:'nearest',inline:'nearest'});};
+ btns.forEach((b,k)=>b.addEventListener('click',()=>go(k)));dv.querySelector('.dv-prev').onclick=()=>go(i-1);dv.querySelector('.dv-next').onclick=()=>go(i+1);
+ dv.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1);});
+ let x0=null;dv.querySelector('.dv-stage').addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});dv.querySelector('.dv-stage').addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null;});})();
 </script>
 
 </body>
